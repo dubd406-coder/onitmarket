@@ -1,2 +1,2 @@
 # onitmarket
-ONIT Market — local marketplace to buy, sell, trade, barter, and find services.
+ONIT Market — local marketplace to buy, sell, auction, trade, barter,find and money services. 
