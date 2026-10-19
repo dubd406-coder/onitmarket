@@ -1,0 +1,5 @@
+{- name: ChatGPT & Codex Plugin Autopilot
+  uses: imMamdouhaboammar/chatgpt-codex-plugin-autopilot@v0.8.0
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {}
+}
