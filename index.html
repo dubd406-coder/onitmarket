@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Onitmarket helps people buy, sell, trade, barter, and discover local deals with confidence."
+    />
+    <title>Onitmarket | Local Marketplace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand-wrap">
+          <div class="brand-mark">O</div>
+          <span>Onitmarket</span>
+        </div>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#discover">Discover</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#ai">AI tools</a>
+          <a href="#trust">Trust</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-ghost">Log in</button>
+          <button class="btn btn-primary">Sell now</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Local deals, done better</div>
+            <h1>Buy, sell, trade, and discover what matters nearby.</h1>
+            <p>
+              Onitmarket is a modern local marketplace built to make everyday buying and
+              selling simple, trusted, and fast.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary">Browse listings</button>
+              <button class="btn btn-secondary">Start selling</button>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <strong>12k+</strong>
+                <span>people active</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>trust rating</span>
+              </div>
+              <div>
+                <strong>24/7</strong>
+                <span>messaging</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Marketplace preview">
+            <div class="visual-card featured-listing">
+              <div class="card-image bike"></div>
+              <div class="listing-meta">
+                <div>
+                  <span class="tag">Featured</span>
+                  <h3>Mountain Bike</h3>
+                </div>
+                <strong>$420</strong>
+              </div>
+              <p>Used, excellent condition · 2 miles away</p>
+            </div>
+
+            <div class="mini-panel panel-top">
+              <span class="mini-label">Top category</span>
+              <strong>Home Goods</strong>
+            </div>
+
+            <div class="mini-panel panel-bottom">
+              <span class="mini-label">AI price match</span>
+              <strong>$395–$470</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="discover">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Explore</span>
+              <h2>Popular categories</h2>
+            </div>
+            <a href="#" class="link-arrow">View all categories</a>
+          </div>
+
+          <div class="categories-grid" id="categories-grid"></div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Fresh finds</span>
+              <h2>Trending near you</h2>
+            </div>
+            <a href="#" class="link-arrow">See more listings</a>
+          </div>
+
+          <div class="listings-grid" id="featured-listings"></div>
+        </div>
+      </section>
+
+      <section class="section" id="how-it-works">
+        <div class="container">
+          <div class="section-heading center">
+            <span class="eyebrow">Simple process</span>
+            <h2>How Onitmarket works</h2>
+          </div>
+
+          <div class="steps-grid">
+            <article class="step-card">
+              <div class="step-number">1</div>
+              <h3>Browse or search</h3>
+              <p>Find local deals in seconds using smart filters and quick search.</p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">2</div>
+              <h3>Message securely</h3>
+              <p>Chat directly with sellers and buyers without the usual marketplace friction.</p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">3</div>
+              <h3>Buy or sell with confidence</h3>
+              <p>List items fast and trade with trusted local reviews and safety tools.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-highlight" id="ai">
+        <div class="container ai-wrap">
+          <div class="ai-copy">
+            <span class="eyebrow">AI-powered</span>
+            <h2>Smarter listing and discovery tools</h2>
+            <p>
+              From AI-generated descriptions to price guidance and smart recommendations,
+              Onitmarket gives users a more helpful and modern marketplace experience.
+            </p>
+            <ul class="feature-list">
+              <li>AI listing assistant</li>
+              <li>Smart local search</li>
+              <li>Price suggestions</li>
+              <li>Moderation and trust checks</li>
+            </ul>
+          </div>
+
+          <div class="ai-panel">
+            <div class="ai-panel-head">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="ai-output">
+              <div class="prompt-box">
+                <span>Upload item photo</span>
+                <strong>AI creates a listing draft</strong>
+              </div>
+              <div class="generated-card">
+                <h4>Road bike for sale</h4>
+                <p>Excellent condition, lightly used, ready for weekend rides.</p>
+                <div class="generated-meta">
+                  <span>Category: Sports</span>
+                  <span>Suggested: $620</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="trust">
+        <div class="container">
+          <div class="section-heading center">
+            <span class="eyebrow">Built for trust</span>
+            <h2>Marketplace safety that feels effortless</h2>
+          </div>
+
+          <div class="trust-grid">
+            <article class="trust-card">
+              <h3>Verified sellers</h3>
+              <p>Build confidence with seller verification and transparent profiles.</p>
+            </article>
+            <article class="trust-card">
+              <h3>Review system</h3>
+              <p>Let buyers and sellers rate each other to create real community trust.</p>
+            </article>
+            <article class="trust-card">
+              <h3>Safer messaging</h3>
+              <p>Keep conversations organized and secure with built-in marketplace messaging.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="brand-wrap footer-brand">
+            <div class="brand-mark">O</div>
+            <span>Onitmarket</span>
+          </div>
+          <p>Your local marketplace for smarter buying and selling.</p>
+        </div>
+
+        <div class="cta-box">
+          <h3>Ready to list your first item?</h3>
+          <div class="cta-row">
+            <input type="email" placeholder="Enter your email" aria-label="Email address" />
+            <button class="btn btn-primary">Get started</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span>© <span id="year"></span> Onitmarket</span>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
