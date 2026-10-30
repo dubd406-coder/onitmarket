@@ -1,253 +1,602 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Onitmarket helps people buy, sell, trade, barter, and discover local deals with confidence."
-    />
-    <title>Onitmarket | Local Marketplace</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <div class="brand-wrap">
-          <div class="brand-mark">O</div>
-          <span>Onitmarket</span>
-        </div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<meta name="description" content="ONIT Market — buy, sell, barter, trade items, exchange work, and bid in auctions.">
+<title>ONIT Market | More Ways to Make a Deal</title>
+<style>
+:root {
+  --green: #a3e635;
+  --dark: #111827;
+  --light: #f7f8fa;
+  --muted: #667085;
+  --border: #e5e7eb;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+  background: var(--light);
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+.wrap { width: min(1120px, 92%); margin: auto; }
+.topbar {
+  background: #080e19;
+  color: white;
+  text-align: center;
+  padding: 9px;
+  font-size: 13px;
+}
+.topbar strong { color: var(--green); }
+header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav {
+  min-height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.brand {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+.brand span { color: #65a30d; }
+.navlinks {
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 17px;
+  background: var(--green);
+  color: #17210a;
+  font-weight: 800;
+  cursor: pointer;
+}
+.btn.dark { background: var(--dark); color: white; }
+.btn.outline { background: transparent; border: 1px solid #667085; color: white; }
+.hero {
+  background: radial-gradient(circle at 85% 10%, #34452c, transparent 35%), linear-gradient(135deg,#111827,#17251b);
+  color: white;
+  padding: 65px 0;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 35px;
+  align-items: center;
+}
+.eyebrow {
+  color: #65a30d;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.hero .eyebrow { color: var(--green); }
+h1 {
+  font-size: clamp(38px,6vw,64px);
+  line-height: 1.03;
+  letter-spacing: -2px;
+  margin: 15px 0;
+}
+.hero p { color: #d1d5db; font-size: 18px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.panel {
+  background: white;
+  color: var(--dark);
+  border-radius: 18px;
+  padding: 22px;
+}
+.deal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.deal:last-child { border-bottom: 0; }
+.deal small { display: block; color: var(--muted); }
+.icon { font-size: 25px; margin-right: 9px; }
+.pill {
+  display: inline-block;
+  background: #ecfccb;
+  color: #365314;
+  border-radius: 30px;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 900;
+}
+.section { padding: 58px 0; }
+.white { background: white; }
+.section h2 {
+  font-size: clamp(28px,4vw,40px);
+  line-height: 1.12;
+  letter-spacing: -1px;
+  margin: 8px 0 12px;
+}
+.intro { max-width: 720px; margin-bottom: 25px; }
+.muted { color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.feature {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 21px;
+}
+.feature h3 { margin: 10px 0 6px; }
+.feature p { color: var(--muted); font-size: 14px; }
+.feature .icon { font-size: 28px; }
+.tools { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+.tools input, .tools select {
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  min-width: 160px;
+}
+.listing {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.art {
+  height: 125px;
+  display: grid;
+  place-items: center;
+  font-size: 48px;
+  background: linear-gradient(135deg,#e5e7eb,#f9fafb);
+}
+.listing-body { padding: 16px; }
+.listing h3 { margin: 8px 0; }
+.listing p { font-size: 13px; }
+.listing-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+.price { font-size: 20px; font-weight: 900; }
+.listing .btn { padding: 9px 11px; font-size: 13px; }
+.dark-section { background: #101827; color: white; }
+.dark-section .muted, .dark-section .intro p { color: #cbd5e1; }
+.dark-section .feature { background: #1d2939; border-color: #344054; }
+.trade-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+}
+.trade-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 17px;
+}
+.trade-card h3 { font-size: 16px; }
+.trade-card p { color: var(--muted); font-size: 14px; }
+.banner {
+  background: #ecfccb;
+  border-radius: 17px;
+  padding: 27px;
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+.banner h2 { margin: 0 0 8px; }
+.notice {
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  margin-top: 20px;
+}
+.signup { display: flex; gap: 10px; max-width: 550px; margin-top: 20px; }
+.signup input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+#status { margin-top: 12px; font-size: 13px; }
+footer { background: #080e19; color: white; padding: 32px 0; }
+footer p { color: #9ca3af; font-size: 13px; }
+.foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+@media(max-width:760px) {
+  .navlinks { display: none; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: repeat(2,1fr); }
+  .trade-grid { grid-template-columns: repeat(2,1fr); }
+  .banner { align-items: flex-start; flex-direction: column; }
+  .signup { flex-direction: column; }
+}
+@media(max-width:480px) {
+  .grid { grid-template-columns: 1fr; }
+  h1 { letter-spacing: -1px; }
+}
+</style>
+</head>
+<body>
 
-        <nav class="nav-links" aria-label="Main navigation">
-          <a href="#discover">Discover</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#ai">AI tools</a>
-          <a href="#trust">Trust</a>
-        </nav>
+<div class="topbar">
+  <strong>ONIT MARKET</strong> — Buy it. Sell it. Trade it. Get ONit.
+</div>
 
-        <div class="nav-actions">
-          <button class="btn btn-ghost">Log in</button>
-          <button class="btn btn-primary">Sell now</button>
-        </div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">ONIT<span>MARKET</span></a>
+    <nav class="navlinks">
+      <a href="#explore">Browse</a>
+      <a href="#trade">Barter & Trade</a>
+      <a href="#auctions">Auctions</a>
+      <a href="#payments">Payments</a>
+    </nav>
+    <a class="btn" href="#join">Get Started</a>
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">More ways to make a deal</div>
+      <h1>One marketplace.<br>Endless possibilities.</h1>
+      <p>
+        Buy, sell, barter, trade items, exchange work, find local services,
+        or bid in timed auctions. On ONIT Market, you choose how to make a deal.
+      </p>
+      <div class="actions">
+        <a class="btn" href="#explore">Explore Listings ↓</a>
+        <a class="btn outline" href="#trade">Find a Trade</a>
       </div>
-    </header>
+      <p style="font-size:13px">
+        Public browsing · Private usernames · Shipping · Local pickup · Trades
+      </p>
+    </div>
 
-    <main>
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <div class="eyebrow">Local deals, done better</div>
-            <h1>Buy, sell, trade, and discover what matters nearby.</h1>
-            <p>
-              Onitmarket is a modern local marketplace built to make everyday buying and
-              selling simple, trusted, and fast.
-            </p>
-
-            <div class="hero-actions">
-              <button class="btn btn-primary">Browse listings</button>
-              <button class="btn btn-secondary">Start selling</button>
-            </div>
-
-            <div class="hero-stats">
-              <div>
-                <strong>12k+</strong>
-                <span>people active</span>
-              </div>
-              <div>
-                <strong>4.9/5</strong>
-                <span>trust rating</span>
-              </div>
-              <div>
-                <strong>24/7</strong>
-                <span>messaging</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-label="Marketplace preview">
-            <div class="visual-card featured-listing">
-              <div class="card-image bike"></div>
-              <div class="listing-meta">
-                <div>
-                  <span class="tag">Featured</span>
-                  <h3>Mountain Bike</h3>
-                </div>
-                <strong>$420</strong>
-              </div>
-              <p>Used, excellent condition · 2 miles away</p>
-            </div>
-
-            <div class="mini-panel panel-top">
-              <span class="mini-label">Top category</span>
-              <strong>Home Goods</strong>
-            </div>
-
-            <div class="mini-panel panel-bottom">
-              <span class="mini-label">AI price match</span>
-              <strong>$395–$470</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="discover">
-        <div class="container">
-          <div class="section-heading">
-            <div>
-              <span class="eyebrow">Explore</span>
-              <h2>Popular categories</h2>
-            </div>
-            <a href="#" class="link-arrow">View all categories</a>
-          </div>
-
-          <div class="categories-grid" id="categories-grid"></div>
-        </div>
-      </section>
-
-      <section class="section section-alt">
-        <div class="container">
-          <div class="section-heading">
-            <div>
-              <span class="eyebrow">Fresh finds</span>
-              <h2>Trending near you</h2>
-            </div>
-            <a href="#" class="link-arrow">See more listings</a>
-          </div>
-
-          <div class="listings-grid" id="featured-listings"></div>
-        </div>
-      </section>
-
-      <section class="section" id="how-it-works">
-        <div class="container">
-          <div class="section-heading center">
-            <span class="eyebrow">Simple process</span>
-            <h2>How Onitmarket works</h2>
-          </div>
-
-          <div class="steps-grid">
-            <article class="step-card">
-              <div class="step-number">1</div>
-              <h3>Browse or search</h3>
-              <p>Find local deals in seconds using smart filters and quick search.</p>
-            </article>
-
-            <article class="step-card">
-              <div class="step-number">2</div>
-              <h3>Message securely</h3>
-              <p>Chat directly with sellers and buyers without the usual marketplace friction.</p>
-            </article>
-
-            <article class="step-card">
-              <div class="step-number">3</div>
-              <h3>Buy or sell with confidence</h3>
-              <p>List items fast and trade with trusted local reviews and safety tools.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-highlight" id="ai">
-        <div class="container ai-wrap">
-          <div class="ai-copy">
-            <span class="eyebrow">AI-powered</span>
-            <h2>Smarter listing and discovery tools</h2>
-            <p>
-              From AI-generated descriptions to price guidance and smart recommendations,
-              Onitmarket gives users a more helpful and modern marketplace experience.
-            </p>
-            <ul class="feature-list">
-              <li>AI listing assistant</li>
-              <li>Smart local search</li>
-              <li>Price suggestions</li>
-              <li>Moderation and trust checks</li>
-            </ul>
-          </div>
-
-          <div class="ai-panel">
-            <div class="ai-panel-head">
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-            <div class="ai-output">
-              <div class="prompt-box">
-                <span>Upload item photo</span>
-                <strong>AI creates a listing draft</strong>
-              </div>
-              <div class="generated-card">
-                <h4>Road bike for sale</h4>
-                <p>Excellent condition, lightly used, ready for weekend rides.</p>
-                <div class="generated-meta">
-                  <span>Category: Sports</span>
-                  <span>Suggested: $620</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="trust">
-        <div class="container">
-          <div class="section-heading center">
-            <span class="eyebrow">Built for trust</span>
-            <h2>Marketplace safety that feels effortless</h2>
-          </div>
-
-          <div class="trust-grid">
-            <article class="trust-card">
-              <h3>Verified sellers</h3>
-              <p>Build confidence with seller verification and transparent profiles.</p>
-            </article>
-            <article class="trust-card">
-              <h3>Review system</h3>
-              <p>Let buyers and sellers rate each other to create real community trust.</p>
-            </article>
-            <article class="trust-card">
-              <h3>Safer messaging</h3>
-              <p>Keep conversations organized and secure with built-in marketplace messaging.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div>
-          <div class="brand-wrap footer-brand">
-            <div class="brand-mark">O</div>
-            <span>Onitmarket</span>
-          </div>
-          <p>Your local marketplace for smarter buying and selling.</p>
-        </div>
-
-        <div class="cta-box">
-          <h3>Ready to list your first item?</h3>
-          <div class="cta-row">
-            <input type="email" placeholder="Enter your email" aria-label="Email address" />
-            <button class="btn btn-primary">Get started</button>
-          </div>
-        </div>
+    <div class="panel">
+      <div class="eyebrow">The ONIT difference</div>
+      <div class="deal">
+        <div><span class="icon">🛒</span><strong>Buy Now</strong><small>Shop items directly</small></div>
+        <span class="pill">SHOP</span>
       </div>
-
-      <div class="container footer-bottom">
-        <span>© <span id="year"></span> Onitmarket</span>
-        <div class="footer-links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Contact</a>
-        </div>
+      <div class="deal">
+        <div><span class="icon">🔨</span><strong>Timed Auctions</strong><small>Bid before time runs out</small></div>
+        <span class="pill">BID</span>
       </div>
-    </footer>
+      <div class="deal">
+        <div><span class="icon">🔄</span><strong>Barter & Trade</strong><small>Swap items or services</small></div>
+        <span class="pill">SWAP</span>
+      </div>
+      <div class="deal">
+        <div><span class="icon">🧰</span><strong>Work for Work</strong><small>Exchange skills and labor</small></div>
+        <span class="pill">WORK</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="app.js"></script>
-  </body>
+<section class="section white" id="explore">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Browse the marketplace</div>
+      <h2>Find it. List it. Make an offer.</h2>
+      <p class="muted">
+        Browse public listings without joining groups. Search items, services,
+        auctions, and trades. The listings below are examples for this demo.
+      </p>
+    </div>
+
+    <div class="tools">
+      <input id="search" type="search" placeholder="Search listings..." aria-label="Search listings">
+      <select id="category" aria-label="Filter listings">
+        <option value="all">All categories</option>
+        <option value="sale">Items for sale</option>
+        <option value="auction">Timed auctions</option>
+        <option value="trade">Barter and trade</option>
+        <option value="work">Work and services</option>
+      </select>
+    </div>
+
+    <div class="grid" id="listings">
+      <article class="listing" data-category="sale" data-search="cordless drill tools">
+        <div class="art">🛠️</div>
+        <div class="listing-body">
+          <span class="pill">BUY NOW</span>
+          <h3>Cordless Tool Set</h3>
+          <p class="muted">Example listing · Pickup or shipping</p>
+          <div class="listing-bottom">
+            <span class="price">$85</span>
+            <button class="btn" onclick="demoAction('Checkout is not connected yet.')">Buy Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="listing" data-category="auction" data-search="mountain bike bicycle auction">
+        <div class="art">🚲</div>
+        <div class="listing-body">
+          <span class="pill">TIMED AUCTION DEMO</span>
+          <h3>Mountain Bike</h3>
+          <p class="muted">Example starting bid</p>
+          <div class="listing-bottom">
+            <span class="price">$60+</span>
+            <button class="btn" onclick="demoAction('Live bidding is not connected yet.')">Place Bid</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="listing" data-category="trade" data-search="firewood logs trade barter">
+        <div class="art">🪵</div>
+        <div class="listing-body">
+          <span class="pill">TRADE WANTED</span>
+          <h3>Split Firewood</h3>
+          <p class="muted">Looking for tools or help</p>
+          <div class="listing-bottom">
+            <span class="price">Trade</span>
+            <button class="btn" onclick="demoAction('Trade offers require marketplace accounts.')">Make Offer</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="listing" data-category="work" data-search="handyman repairs labor service">
+        <div class="art">🧰</div>
+        <div class="listing-body">
+          <span class="pill">SERVICE</span>
+          <h3>Handyman Help</h3>
+          <p class="muted">Example service listing</p>
+          <div class="listing-bottom">
+            <span class="price">Get a quote</span>
+            <button class="btn" onclick="demoAction('Messaging will be available after accounts are connected.')">Contact</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="listing" data-category="trade" data-search="item for item swap exchange">
+        <div class="art">🔄</div>
+        <div class="listing-body">
+          <span class="pill">ITEM FOR ITEM</span>
+          <h3>Swap What You Have</h3>
+          <p class="muted">Offer something and request something back</p>
+          <div class="listing-bottom">
+            <span class="price">Barter</span>
+            <button class="btn" onclick="demoAction('Trade proposals are a preview until accounts are connected.')">Propose Trade</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="listing" data-category="work" data-search="work for work skills service exchange">
+        <div class="art">🤝</div>
+        <div class="listing-body">
+          <span class="pill">WORK FOR WORK</span>
+          <h3>Exchange Skills</h3>
+          <p class="muted">Trade your labor or service for another</p>
+          <div class="listing-bottom">
+            <span class="price">Exchange</span>
+            <button class="btn" onclick="demoAction('Matching services are not connected yet.')">Find Match</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p id="empty" class="muted" hidden>No listings match your search.</p>
+  </div>
+</section>
+
+<section class="section" id="trade">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Cash isn't the only way</div>
+      <h2>Make the kind of deal that works for you.</h2>
+      <p class="muted">Trade items, exchange services, or sell for cash.</p>
+    </div>
+
+    <div class="trade-grid">
+      <div class="trade-card">
+        <div class="icon">📦</div>
+        <h3>Item for Item</h3>
+        <p>Swap something you have for something you need.</p>
+      </div>
+      <div class="trade-card">
+        <div class="icon">🧱</div>
+        <h3>Item for Work</h3>
+        <p>Offer an item in exchange for labor or a service.</p>
+      </div>
+      <div class="trade-card">
+        <div class="icon">🧑‍🔧</div>
+        <h3>Work for Work</h3>
+        <p>Exchange skills, time, repairs, or services.</p>
+      </div>
+      <div class="trade-card">
+        <div class="icon">💵</div>
+        <h3>Item for Cash</h3>
+        <p>Sell at a set price or invite offers.</p>
+      </div>
+    </div>
+
+    <div class="banner">
+      <div>
+        <h2>Have something to offer?</h2>
+        <p>List an item, advertise a service, or describe the trade you want.</p>
+      </div>
+      <a class="btn dark" href="#join">Get ONit</a>
+    </div>
+  </div>
+</section>
+
+<section class="section dark-section" id="auctions">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Bid your way</div>
+      <h2>Timed auctions are part of ONIT Market.</h2>
+      <p>
+        Auction listings are designed to show starting prices, current bids,
+        closing times, and results. Live bidding requires a connected backend.
+      </p>
+    </div>
+    <div class="grid">
+      <div class="feature">
+        <div class="icon">⏳</div>
+        <h3>Countdowns</h3>
+        <p>See when each auction opens and closes.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📈</div>
+        <h3>Place Bids</h3>
+        <p>Submit and track bids once live auction services are enabled.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔔</div>
+        <h3>Auction Results</h3>
+        <p>Winner notifications can be added when accounts are connected.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section white" id="payments">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Payments and trust</div>
+      <h2>Know where your deal stands.</h2>
+      <p class="muted">
+        Our goal is a clearer transaction experience from verification
+        through completion and eligible seller payout.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="feature">
+        <div class="icon">🛡️</div>
+        <h3>Account Verification</h3>
+        <p>Verification may be required before certain marketplace payment features can be used.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🤝</div>
+        <h3>Transaction Status</h3>
+        <p>Planned status tracking for pending orders, completed deals, and payout eligibility.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💳</div>
+        <h3>ONIT Market Card</h3>
+        <p>A future card and transaction dashboard for marketplace activity.</p>
+        <span class="pill">COMING SOON</span>
+      </div>
+    </div>
+
+    <div class="notice">
+      <strong>Important:</strong> Payments, identity checks, held funds,
+      seller payouts, and ONIT Market Card services are not active yet.
+      They require supported providers, approvals, and appropriate safeguards.
+      This demo does not accept payments or hold money.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="join">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Be part of what's next</div>
+      <h2>ONIT Market is being built for real-world deals.</h2>
+      <p class="muted">
+        Follow launch updates for buying, selling, trades, auctions,
+        services, and upcoming payment features.
+      </p>
+    </div>
+    <form class="signup" id="signup">
+      <input type="email" id="email" placeholder="Your email address" required>
+      <button class="btn" type="submit">Notify Me</button>
+    </form>
+    <div id="status" role="status"></div>
+    <p class="muted" style="font-size:12px">
+      Demo only: this form does not store or send your email.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="#home">ONIT<span>MARKET</span></a>
+      <p>Buy · Sell · Barter · Trade · Work · Auctions</p>
+    </div>
+    <div>
+      <a href="#explore">Browse</a> ·
+      <a href="#trade">Trade</a> ·
+      <a href="#payments">Payments</a>
+      <p>© <span id="year"></span> ONIT Market · Demo preview</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function demoAction(message) {
+  alert("ONIT Market Demo: " + message);
+}
+
+const search = document.getElementById("search");
+const category = document.getElementById("category");
+const cards = Array.from(document.querySelectorAll(".listing"));
+
+function filterListings() {
+  const query = search.value.trim().toLowerCase();
+  const selected = category.value;
+  let count = 0;
+
+  cards.forEach(function(card) {
+    const matchesText =
+      (card.dataset.search + " " + card.innerText)
+        .toLowerCase().includes(query);
+    const matchesCategory =
+      selected === "all" || card.dataset.category === selected;
+    const show = matchesText && matchesCategory;
+
+    card.hidden = !show;
+    if (show) count++;
+  });
+
+  document.getElementById("empty").hidden = count !== 0;
+}
+
+search.addEventListener("input", filterListings);
+category.addEventListener("change", filterListings);
+
+document.getElementById("signup").addEventListener("submit", function(event) {
+  event.preventDefault();
+  document.getElementById("status").textContent =
+    "Thanks for your interest! The signup service is not connected yet, so your email was not saved or sent.";
+});
+</script>
+
+</body>
 </html>
